@@ -24,3 +24,13 @@ test('check privacy policy', async ({ page }) => {
   // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Privacy Policy' })).toBeVisible();
 });
+
+test('check second privacy policy', async ({ page }) => {
+  await page.goto('/');
+
+  // Click the get started link.
+  await page.getByRole('link',{name:"Privacy"}).nth(1).click();
+
+  // Expects page to have a heading with the name of Installation.
+  await expect(page.getByRole('heading', { name: 'Privacy Policy' })).toBeVisible();
+});
